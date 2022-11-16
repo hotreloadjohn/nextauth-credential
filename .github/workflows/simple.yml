@@ -1,0 +1,23 @@
+name: Simple Pipeline
+
+on:
+  push:
+    branch: [main]
+
+jobs:
+  lintTest:
+    name: Lint Test
+    runs-on: ubuntu-latest
+    step:
+      - name: clone repo
+        uses: actions/checkout@v2
+      - name: install deps
+        run: |
+          echo "running install dependencies..."
+          npm i
+      - name: Run Lint
+        run: |
+          echo "running lint test..."
+          npm run lint
+        env:
+          CI: true

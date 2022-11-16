@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const authOptions = {
@@ -16,7 +16,8 @@ const authOptions = {
         //   placeholder: "password",
         // },
       },
-      authorize(credentials, req) {
+      // authorize(credentials, req) {
+      authorize(credentials) {
         const { email, password } = credentials;
         // perform you login logic
         // find out user from db
